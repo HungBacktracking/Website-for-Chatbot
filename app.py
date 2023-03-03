@@ -31,7 +31,8 @@ def get_bot_response():
     return response
 
 def generate_response_gpt3(user_message, model, api_key):
-    prompt = user_message
+    prompt = (f"User: {user_message}\n"
+              f"Brend: ")
     response = requests.post(
         "https://api.openai.com/v1/engines/text-davinci-003/completions",
         headers = {"Authorization" : f"Bearer {api_key}"},
